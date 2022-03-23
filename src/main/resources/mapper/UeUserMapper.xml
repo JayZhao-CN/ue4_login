@@ -208,6 +208,23 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <update id="updateByAccountSelective" parameterType="com.jay.ue4_login.entity.UeUser">
+    update ue_user
+    <set>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+    </set>
+    where account = #{account,jdbcType=VARCHAR}
+  </update>
+
   <update id="updateByPrimaryKey" parameterType="com.jay.ue4_login.entity.UeUser">
     update ue_user
     set account = #{account,jdbcType=VARCHAR},

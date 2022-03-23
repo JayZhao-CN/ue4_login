@@ -10,8 +10,8 @@ spring:
       password: 159567
 
       # 连接池配置：大小，最小，最大
-      initial-size: 5
-      min-idle: 5
+      initial-size: 1
+      min-idle: 1
       max-active: 20
 
       # 连接等待超时时间
@@ -49,11 +49,11 @@ spring:
 #mybatis配置
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-#  configuration:
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 server:
-  port: 8080
+  port: 8888
   servlet:
     encoding:
       charset: utf-8

@@ -31,5 +31,7 @@ public interface UeUserMapper {
 
     int updateByPrimaryKeySelective(UeUser record);
 
+    int updateByAccountSelective(UeUser record);
+
     int updateByPrimaryKey(UeUser record);
 }
