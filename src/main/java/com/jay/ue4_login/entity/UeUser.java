@@ -7,6 +7,8 @@ public class UeUser implements Serializable {
 
     private String account;
 
+    private String email;
+
     private String password;
 
     private String username;
@@ -29,6 +31,13 @@ public class UeUser implements Serializable {
 
     public void setAccount(String account) {
         this.account = account == null ? null : account.trim();
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
     }
 
     public String getPassword() {

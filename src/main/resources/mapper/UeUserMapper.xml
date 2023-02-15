@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.jay.ue4_login.entity.UeUser">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="level" jdbcType="INTEGER" property="level" />
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, account, password, username, level
+    id, account,email, password, username, level
   </sql>
   <select id="selectByExample" parameterType="com.jay.ue4_login.entity.UeUserExample" resultMap="BaseResultMap">
     select
@@ -94,7 +95,7 @@
     select
     <include refid="Base_Column_List" />
     from ue_user
-    where account = #{account,jdbcType=VARCHAR}
+    where account = #{account,jdbcType=VARCHAR} or email = #{account,jdbcType=VARCHAR}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -122,6 +123,9 @@
       <if test="account != null">
         account,
       </if>
+      <if test="email != null">
+        email,
+      </if>
       <if test="password != null">
         password,
       </if>
@@ -138,6 +142,9 @@
       </if>
       <if test="account != null">
         #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
@@ -222,7 +229,7 @@
         level = #{level,jdbcType=INTEGER},
       </if>
     </set>
-    where account = #{account,jdbcType=VARCHAR}
+    where account = #{account,jdbcType=VARCHAR} or email = #{account,jdbcType=VARCHAR}
   </update>
 
   <update id="updateByPrimaryKey" parameterType="com.jay.ue4_login.entity.UeUser">
